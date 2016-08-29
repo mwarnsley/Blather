@@ -13,9 +13,10 @@
 			<nav>
 				<ul>
 					{% if user.is_authenticated %}
-					<li><a href="{% url 'logout' %}?next=/">Logout</a></li>
+						<li><a href="{% url 'myview' %}">My Blats</a></li>
+						<li><a href="{% url 'logout' %}?next=/">Logout</a></li>
 					{% else %}
-					<li><a href="/login/?next=/">Log in</a></li>
+						<li><a href="/login/?next=/">Log in</a></li>
 					{% endif %}
 				</ul>
 			</nav>
