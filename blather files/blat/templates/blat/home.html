@@ -1,16 +1,20 @@
+{% extends "blat/master.html" %}
 {% load humanize %}
-{% if blat_list %}
-	<dl>
-	{% for blat in blat_list %}
-		<dt>{{ blat.text }}</dt>
-		<dd>
-			<a href="{{ blat.id }}">{{ blat.created_on|naturaltime }}</a></dd>
-			{% if blat.via %}
-				<a href="{{ blat.via }}">/via</a>
-			{% endif %}
-		{{blat}}<br/>
-	{% endfor %}
-	</dl>
-{% else %}
-	:-(
-{% endif %}
+
+{% block content %}
+	{% if blat_list %}
+		<dl>
+		{% for blat in blat_list %}
+			<dt>{{ blat.text }}</dt>
+			<dd>
+				<a href="{{ blat.id }}">{{ blat.created_on|naturaltime }}</a></dd>
+				{% if blat.via %}
+					<a href="{{ blat.via }}">/via</a>
+				{% endif %}
+			{{blat}}<br/>
+		{% endfor %}
+		</dl>
+	{% else %}
+		:-(
+	{% endif %}
+{% endblock %}
