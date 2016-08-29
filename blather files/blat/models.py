@@ -9,5 +9,8 @@ class Blat(models.Model):
     def total_likes(self):
     	return self.like_set.count()
 
+    def __unicode__(self):
+    	return self.text[:50]
+
 class Like(models.Model):
 	blat = models.ForeignKey(Blat)
