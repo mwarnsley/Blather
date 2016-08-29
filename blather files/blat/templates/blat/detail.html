@@ -1,15 +1,17 @@
-{% extends "blat/master.html" %}
+{%extends "blat/master.html"%}
 
-{% block title %} Blat details {% endblock %}
+{%block title%}Blat details{%endblock%}
 
-{% block content %}
-<dl>
-	<dd>{{ blat.text }}</dd>
-	<dt>
-		{{ blat.created_on }}
-		{% if blat.via %}
-			<a href="{{ blat.via }}">/via</a>
-		{% endif %}
-	</dt>
-</dl>
-{% endblock %}
+{%block content%}
+	<dl>
+		<dd>{{blat.text}}</dd>
+		<dt>{{blat.created_on}}
+			{%if blat.via%}
+			<a href="{{blat.via}}">/via</a>
+			{%endif%}
+		  	{%if blat.created_by == user%}
+		  	<a href="{%url 'editblat' pk=blat.id%}">edit this</a>
+		  	{%endif%}
+		</dt>
+	</dd>
+{%endblock%}
